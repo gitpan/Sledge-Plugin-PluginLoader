@@ -1,7 +1,7 @@
 package Sledge::Plugin::PluginLoader;
 use strict;
 use warnings;
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 use UNIVERSAL::require;
 
 sub import {
@@ -15,10 +15,13 @@ sub import {
 
         for my $plugin (@plugins) {
             my $name = $plugin->require ? $plugin : "Sledge::Plugin::$plugin";
+
+            # XXX Sledge Plugin uses caller in the import method.
             eval qq{
                 package $pkg;
                 use $name;
             };
+
             die $@ if $@;
         }
     };

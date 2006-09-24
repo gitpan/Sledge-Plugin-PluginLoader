@@ -1,4 +1,7 @@
 Revision history for Perl extension Sledge::Plugin::PluginLoader
 
+0.02  Sat Sep 23 21:29:06 EDT 2006
+    - oops... added PREREQ: UNIVERSAL::require
+
 0.01  Thu Mar 16 00:08:31 2006
     - original version
